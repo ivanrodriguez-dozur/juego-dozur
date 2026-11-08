@@ -126,7 +126,7 @@ const money=n=>'$'+Number(n).toLocaleString('es-CO');
 const premioTxt=p=>p==='PRENDA'?'Camiseta o pantaloneta de regalo':money(p)+' de descuento en tu uniforme completo';
 const TIERS=[5000,5000,10000,15000,20000,30000,'PRENDA',50000];
 const call=async q=>{try{return await (await fetch(API+'?'+new URLSearchParams(q))).json()}
-  catch(e){return{error:'Sin conexión. Revisa tu internet e intenta de nuevo.'}}};
+  catch(e){return{error:'Sin conexión ('+e.message+'). Revisa tu internet e intenta de nuevo.'}}};
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 let sid=null,n=0,busy=false;
 
